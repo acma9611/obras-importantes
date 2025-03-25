@@ -238,3 +238,332 @@ iframe {
         width: 95%;
     }
 }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F4E1C1;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #8D6E63;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+img {
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #A1887F;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: #795548;
+}
+.info {
+    background-color: #D7CCC8;
+    padding: 20px;
+    margin: 20px auto;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info h2 {
+    color: #5D4037;
+}
+
+.info p {
+    font-size: 16px;
+    color: #3E2723;
+    line-height: 1.5;
+}
+
+.info ul {
+    text-align: left;
+    margin: 10px auto;
+    display: inline-block;
+}
+.creditos {
+    background-color: #5D4037; /* Marrón oscuro */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.creditos p {
+    margin: 5px 0;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #EFEBE9;
+    text-align: center;
+}
+
+/* Figuras geométricas decorativas */
+.figura {
+    position: absolute;
+    opacity: 0.6;
+    z-index: -1;
+}
+
+.circulo {
+    width: 80px;
+    height: 80px;
+    background-color: #750391;
+    border-radius: 50%;
+    top: 50px;
+    left: 20px;
+    animation: flotar 4s infinite alternate ease-in-out;
+}
+
+.cuadrado {
+    width: 70px;
+    height: 70px;
+    background-color: #32db6b;
+    top: 200px;
+    right: 40px;
+    animation: girar 5s infinite linear;
+}
+
+.triangulo {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 80px solid #32db6b;
+    bottom: 50px;
+    left: 30%;
+    animation: subir-bajar 3s infinite alternate ease-in-out;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Animaciones para cada sesión */
+.sesion {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 1.5s ease-in-out forwards;
+}
+
+.sesion img, .sesion video {
+    animation: fadeIn 2s ease-in-out;
+}
+
+
+
+/* Estilos de la sección informativa */
+.info {
+    background-color: #D7CCC8;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info h2 {
+    color: #5D4037;
+}
+
+.info p, .info ul {
+    font-size: 16px;
+    color: #3E2723;
+    line-height: 1.5;
+    text-align: left;
+    margin: auto;
+    width: 80%;
+}
+
+button {
+    background-color: #795548;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #5D4037;
+}
+
+.video-grande {
+    width: 80%;  /* Ajusta el tamaño según necesites */
+    max-width: 1000px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.sesion {
+    padding: 50px;
+    background-color: #E5D0B3; /* Color tierra */
+    border-radius: 20px;
+    margin: 20px auto;
+    max-width: 90%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    animation: slideUp 1.5s ease-in-out;
+}
+
+.sesion h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #6D4C41;
+}
+
+.contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.contenido img {
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+iframe {
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 768px) {
+    .video-grande {
+        width: 95%;
+    }
+}
+/* 1. Efectos de entrada en cada sesión */
+@import url('https://unpkg.com/aos@2.3.1/dist/aos.css');
+
+/* 2. Botones con efectos dinámicos */
+button {
+  background-color: #8B5E3C;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+}
+
+button:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 3. Animaciones en el fondo */
+@keyframes floatingShapes {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.background-shapes {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(139, 94, 60, 0.3);
+  border-radius: 50%;
+  animation: floatingShapes 5s infinite ease-in-out;
+}
+
+/* 4. Videos con transiciones fluidas */
+.video-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.video-container video {
+  width: 100%;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.video-container.show video {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.video-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.video-container.show .video-text {
+  opacity: 1;
+}
+
+/* 5. Botones geométricos con efectos */
+.geo-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background: linear-gradient(45deg, #A67B5B, #8B5E3C);
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 50% 50% 0 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.geo-button:hover {
+  transform: rotate(5deg) scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
