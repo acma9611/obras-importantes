@@ -100,7 +100,7 @@ body {
 .circulo {
     width: 80px;
     height: 80px;
-    background-color: #8D6E63;
+    background-color: #750391;
     border-radius: 50%;
     top: 50px;
     left: 20px;
@@ -110,7 +110,7 @@ body {
 .cuadrado {
     width: 70px;
     height: 70px;
-    background-color: #A1887F;
+    background-color: #32db6b;
     top: 200px;
     right: 40px;
     animation: girar 5s infinite linear;
@@ -121,7 +121,7 @@ body {
     height: 0;
     border-left: 40px solid transparent;
     border-right: 40px solid transparent;
-    border-bottom: 80px solid #795548;
+    border-bottom: 80px solid #32db6b;
     bottom: 50px;
     left: 30%;
     animation: subir-bajar 3s infinite alternate ease-in-out;
