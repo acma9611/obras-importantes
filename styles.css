@@ -68,6 +68,20 @@ button:hover {
     margin: 10px auto;
     display: inline-block;
 }
+.creditos {
+    background-color: #5D4037; /* Marrón oscuro */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.creditos p {
+    margin: 5px 0;
+}
 
 /* Estilos generales */
 body {
