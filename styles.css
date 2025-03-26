@@ -1,3 +1,81 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5e6d9; /* Colores tierra */
+}
+
+/* Contenedor principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Ajustes para imágenes y videos */
+img, video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Botones geométricos */
+.button {
+    display: inline-block;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #8d6e63; /* Marrón tierra */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto en hover */
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 📱 Media Query para móviles */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .button {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* Ajuste de texto */
+    h1, h2, h3 {
+        font-size: smaller;
+        text-align: center;
+    }
+
+    /* Reducir animaciones en móviles */
+    * {
+        animation-duration: 0.5s !important;
+        transition-duration: 0.5s !important;
+    }
+}
+
+/* 📱 Media Query para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+    .button {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    img, video {
+        border-radius: 5px;
+    }
+}
 body {
     font-family: Arial, sans-serif;
     background-color: #F4E1C1;
