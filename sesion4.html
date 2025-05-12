@@ -3,45 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundación de Popayán</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Augusto Rivera: Fundación de Popayán - Estilo Invencible</title>
+    <style>
+        /* Estilo inspirado en Invencible (Invincible) */
+        :root {
+            --red: #E01010;
+            --dark-red: #A00000;
+            --blue: #0066CC;
+            --yellow: #FFD700;
+            --black: #000000;
+            --white: #FFFFFF;
+            --comic-bg: #F5F5F5;
+        }
+        
+        body {
+            background-color: var(--comic-bg);
+            font-family: 'Bangers', 'Arial Black', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--black);
+            line-height: 1.5;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="none" stroke="%23E01010" stroke-width="2"/></svg>');
+            background-size: 100px 100px;
+            background-attachment: fixed;
+        }
+        
+        .comic-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--white);
+            border: 5px solid var(--black);
+            box-shadow: 10px 10px 0 var(--black);
+            position: relative;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        header {
+            background-color: var(--red);
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--black);
+            margin-bottom: 30px;
+            position: relative;
+            clip-path: polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%);
+        }
+        
+        h1, h2 {
+            font-family: 'Bangers', cursive;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 2px;
+            color: var(--white);
+            text-shadow: 3px 3px 0 var(--black),
+                         5px 5px 0 var(--black);
+            -webkit-text-stroke: 1px var(--black);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin: 30px 0 15px;
+            color: var(--red);
+            -webkit-text-stroke: 0.5px var(--black);
+            text-shadow: 2px 2px 0 var(--black);
+            border-bottom: 3px solid var(--black);
+            display: inline-block;
+        }
+        
+        .comic-image {
+            border: 5px solid var(--black);
+            box-shadow: 8px 8px 0 var(--black);
+            margin: 20px auto;
+            display: block;
+            max-width: 100%;
+            background-color: var(--white);
+            transition: transform 0.3s;
+        }
+        
+        .comic-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border: 3px solid var(--black);
+        }
+        
+        .info-panel {
+            background-color: var(--white);
+            border: 3px solid var(--black);
+            padding: 25px;
+            margin: 30px 0;
+            position: relative;
+            box-shadow: 5px 5px 0 var(--black);
+        }
+        
+        .info-panel:before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            width: 40px;
+            height: 15px;
+            background-color: var(--red);
+            clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+        }
+        
+        p {
+            margin: 15px 0;
+            font-size: 1.2rem;
+            text-align: justify;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .highlight {
+            background-color: var(--yellow);
+            padding: 2px 5px;
+            font-weight: bold;
+            font-family: 'Bangers', cursive;
+            letter-spacing: 1px;
+        }
+        
+        .comic-button {
+            font-family: 'Bangers', cursive;
+            background-color: var(--red);
+            color: var(--white);
+            border: 4px solid var(--black);
+            padding: 12px 30px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 6px 6px 0 var(--black);
+            transition: all 0.2s;
+            display: block;
+            margin: 40px auto;
+            width: fit-content;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .comic-button:hover {
+            background-color: var(--dark-red);
+            box-shadow: 8px 8px 0 var(--black);
+            transform: translateY(-2px);
+        }
+        
+        .comic-button:active {
+            box-shadow: 3px 3px 0 var(--black);
+            transform: translate(3px, 3px);
+        }
+        
+        .team-panel {
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 20px;
+            border: 3px solid var(--black);
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 5px 5px 0 var(--black);
+        }
+        
+        .team-panel h2 {
+            color: var(--white);
+            border-bottom-color: var(--white);
+        }
+        
+        .team-panel p {
+            font-size: 1.3rem;
+            text-align: center;
+            font-family: 'Bangers', cursive;
+            letter-spacing: 1px;
+        }
+        
+        .comic-iframe {
+            border: 5px solid var(--black);
+            box-shadow: 8px 8px 0 var(--black);
+            margin: 30px auto;
+            display: block;
+            background-color: var(--white);
+        }
+        
+        .burst {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50,5 L60,40 L95,50 L60,60 L50,95 L40,60 L5,50 L40,40 Z" fill="%23E01010" stroke="%23000" stroke-width="2"/></svg>');
+            background-size: contain;
+            z-index: 2;
+        }
+        
+        .burst-1 {
+            top: -50px;
+            right: 50px;
+        }
+        
+        .burst-2 {
+            bottom: -50px;
+            left: 50px;
+            transform: rotate(45deg);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .burst {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .burst-1 {
+                top: -30px;
+                right: 20px;
+            }
+            
+            .burst-2 {
+                bottom: -30px;
+                left: 20px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Augusto Rivera: Fundación de Popayán</h1>
-    </header>
+    <div class="comic-container">
+        <div class="burst burst-1"></div>
+        
+        <header>
+            <h1>AUGUSTO RIVERA: FUNDACIÓN DE POPAYÁN</h1>
+        </header>
+        
+        <div class="image-grid">
+            <img src="fotos/Fundación de Popayán 3.jpg" alt="Detalle de la Fundación de Popayán" class="comic-image">
+            <img src="fotos/Fundación de Popayán 5.jpg" alt="Otra perspectiva de la obra" class="comic-image">
+        </div>
+        
+        <iframe src="https://drive.google.com/file/d/1jR8sztxT5A7hprzInwEotPgz3sq37-pg/preview" 
+                width="100%" height="500px" allowfullscreen class="comic-iframe"></iframe>
 
-    <section>
-        <img src="fotos/Fundación de Popayán 3.jpg" alt="Imagen 2">
-        <img src="fotos/Fundación de Popayán 5.jpg" alt="Imagen 3">
-<iframe src="https://drive.google.com/file/d/1jR8sztxT5A7hprzInwEotPgz3sq37-pg/preview" 
-        width="100%" height="500px" allowfullscreen></iframe>
+        <div class="info-panel">
+            <h2>AUGUSTO RIVERA GARCÉS</h2>
+            <p>
+                <span class="highlight">Destacado pintor colombiano nacido en Bolívar, Cauca.</span> A los 18 años, se unió a la Compañía de Variedades de Curro Romero, viajando por Ecuador, Perú y Chile, hasta llegar a Viña del Mar, donde inició estudios de pintura y participó en varias exposiciones. A finales de los años cincuenta, regresó a Colombia y trabajó como escenógrafo en la naciente televisión nacional.
+            </p>
+            <p>
+                Su obra fue destacada por la crítica de arte Marta Traba, quien lo exaltó junto a artistas como <span class="highlight">Alejandro Obregón, Enrique Grau, Fernando Botero y Édgar Negret.</span> En 1964, obtuvo el Primer Premio de Pintura en el IV Salón Nacional de Cúcuta.
+            </p>
+            <p>
+                Fue docente en la Universidad de Los Andes y en la Universidad Jorge Tadeo Lozano. Su estilo se inscribe dentro del <span class="highlight">expresionismo figurativo</span>, explorando diversas técnicas y soportes, desde lienzos hasta cáscaras de huevo. Un día antes de su muerte, instaló el mural "Historia de Cartagena de Indias" en el Centro de Convenciones de Cartagena. Sus obras forman parte de colecciones de museos como el <span class="highlight">MoMA, el Banco de la República y el Museo La Tertulia.</span>
+            </p>
+        </div>
 
-
-    </section>
-
-    <section class="info">
-        <h2>Augusto Rivera Garcés</h2>
-        <p>
-           Destacado pintor colombiano nacido en Bolívar, Cauca. A los 18 años, se unió a la Compañía de Variedades de Curro Romero, viajando por Ecuador, Perú y Chile, hasta llegar a Viña del Mar, donde inició estudios de pintura y participó en varias exposiciones. A finales de los años cincuenta, regresó a Colombia y trabajó como escenógrafo en la naciente televisión nacional. 
-Su obra fue destacada por la crítica de arte Marta Traba, quien lo exaltó junto a artistas como Alejandro Obregón, Enrique Grau, Fernando Botero y Édgar Negret. En 1964, obtuvo el Primer Premio de Pintura en el IV Salón Nacional de Cúcuta. 
-Fue docente en la Universidad de Los Andes y en la Universidad Jorge Tadeo Lozano. Su estilo se inscribe dentro del expresionismo figurativo, explorando diversas técnicas y soportes, desde lienzos hasta cáscaras de huevo. Un día antes de su muerte, instaló el mural "Historia de Cartagena de Indias" en el Centro de Convenciones de Cartagena. Sus obras forman parte de colecciones de museos como el MoMA, el Banco de la República y el Museo La Tertulia.
-</p>
-
- <section class="info">
-        <h2>Fundación de Popayán</h2> 
-                <p>Esta obra de arte nos relata sobre el desarrollo y fundación de Popayán, también como sus diferentes grupos entre ellos indígenas y españoles en ese momento lucharon por el territorio por donde hoy yace asunción de Popayán, reflejando el conflicto y bajo que precio se fundó esta ciudad, donde podemos ver como se creaba el mito de una “ciudad blanca” y tiempo después el ultimo bastión español en el virreino de la nueva granada.
-Estos mitos  borraron por completo el aspecto y la visión multidimensional que tiene de trasfondo Popayán, una ciudad de múltiples comunidades, etnias, esto se ve borrado por estos mitos que predominan en el relato contemporáneo al nombrar este lugar, con esto vemos como la obra puede ayudar a desmitificar estos mitos y dar una estética que amplíe el panorama pasando de bidimensional a multidimensional.</p>
-   
-       
-            </ul>
-        </p>
-         <section>
-        <img src="fotos/integrantefun.jpg" alt="Imagen 4">
-             <h2>Integrantes</h2>
-            <p>Edwin Chicangana Hormiga, Cristian Hernández Moreno, Karen Astudillo, Santiago González Ipia, Daniela Chicangana, Diana Angulo Caicedo</p>
-    </section>
-
-    <button onclick="window.location.href='index.html'">Volver al Inicio</button>
+        <div class="info-panel">
+            <h2>FUNDACIÓN DE POPAYÁN</h2>
+            <p>
+                Esta obra de arte nos relata sobre el desarrollo y fundación de Popayán, también como sus diferentes grupos entre ellos <span class="highlight">indígenas y españoles</span> en ese momento lucharon por el territorio por donde hoy yace asunción de Popayán, reflejando el conflicto y bajo que precio se fundó esta ciudad, donde podemos ver como se creaba el mito de una <span class="highlight">"ciudad blanca"</span> y tiempo después el ultimo bastión español en el virreino de la nueva granada.
+            </p>
+            <p>
+                Estos mitos borraron por completo el aspecto y la visión multidimensional que tiene de trasfondo Popayán, una ciudad de múltiples comunidades, etnias, esto se ve borrado por estos mitos que predominan en el relato contemporáneo al nombrar este lugar, con esto vemos como la obra puede ayudar a <span class="highlight">desmitificar estos mitos</span> y dar una estética que amplíe el panorama pasando de bidimensional a multidimensional.
+            </p>
+            
+            <img src="fotos/integrantefun.jpg" alt="Equipo de trabajo" class="comic-image">
+        </div>
+        
+        <div class="team-panel">
+            <h2>EL EQUIPO</h2>
+            <p>Edwin Chicangana Hormiga • Cristian Hernández Moreno • Karen Astudillo • Santiago González Ipia • Daniela Chicangana • Diana Angulo Caicedo</p>
+        </div>
+        
+        <button class="comic-button" onclick="window.location.href='index.html'">¡VOLVER AL INICIO!</button>
+        
+        <div class="burst burst-2"></div>
+    </div>
 </body>
 </html>
