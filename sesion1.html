@@ -4,64 +4,232 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Un canto a la escuetería</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Marvel:wght@700&display=swap');
+        
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: 'Marvel', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: radial-gradient(#333 1px, transparent 1px);
+            background-size: 20px 20px;
+            line-height: 1.5;
+        }
+        
+        header {
+            background: linear-gradient(45deg, #e62425 0%, #b11313 100%);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid #f5f5f5;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        
+        h1, h2 {
+            font-family: 'Bangers', cursive;
+            color: #ffcc00;
+            text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            transform: rotate(-2deg);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 3px solid #e62425;
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+        
+        section {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #000;
+            margin: 20px;
+            padding: 20px;
+            border: 3px solid #000;
+            border-radius: 0;
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(230,36,37,0.1) 0%, rgba(255,204,0,0.1) 100%);
+            z-index: -1;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 3px solid #000;
+            margin: 10px 0;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.5);
+            display: block;
+        }
+        
+        iframe {
+            border: 4px solid #000;
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.5);
+            margin: 15px 0;
+        }
+        
+        p, li {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        li::before {
+            content: "•";
+            color: #e62425;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        button {
+            background: linear-gradient(45deg, #e62425 0%, #b11313 100%);
+            color: #ffcc00;
+            font-family: 'Bangers', cursive;
+            font-size: 1.2rem;
+            border: 3px solid #000;
+            padding: 10px 20px;
+            margin: 20px;
+            cursor: pointer;
+            text-shadow: 2px 2px 0 #000;
+            letter-spacing: 1px;
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.5);
+            transition: all 0.3s;
+            transform: rotate(-1deg);
+        }
+        
+        button:hover {
+            transform: rotate(1deg) scale(1.05);
+            box-shadow: 7px 7px 0 rgba(0,0,0,0.5);
+        }
+        
+        /* Comic speech bubble effect for sections */
+        .info {
+            position: relative;
+        }
+        
+        .info::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            right: 30px;
+            border-width: 20px 20px 0;
+            border-style: solid;
+            border-color: #fff transparent;
+            display: block;
+            width: 0;
+        }
+        
+        .info::before {
+            content: "";
+            position: absolute;
+            bottom: -23px;
+            right: 28px;
+            border-width: 22px 22px 0;
+            border-style: solid;
+            border-color: #000 transparent;
+            display: block;
+            width: 0;
+            z-index: -1;
+        }
+        
+        /* Comic dot pattern overlay */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(#000 10%, transparent 10%);
+            background-size: 10px 10px;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Adolfo Albán: Un canto a la escuetería</h1>
+        <h1>ADOLFO ALBÁN: UN CANTO A LA ESCUETERÍA</h1>
     </header>
 
     <section>
         <img src="fotos/adolfo1.jpg" alt="Imagen 1">
 
-<iframe src="https://drive.google.com/file/d/1Z8TvPL2U_mkQbILx-Kv7JNieq9QXHFEv/preview" 
-        width="100%" height="500px" allowfullscreen></iframe>
-
+        <iframe src="https://drive.google.com/file/d/1Z8TvPL2U_mkQbILx-Kv7JNieq9QXHFEv/preview" 
+                width="100%" height="500px" allowfullscreen></iframe>
     </section>
 
     <section class="info">
-        <h2>Adolfo Albán Achinte</h2>
+        <h2>ADOLFO ALBÁN ACHINTE</h2>
         <p>
             Nació el 18 de junio de 1958 en la ciudad de Santiago de Cali, Colombia.
-Llevando a cabo sus estudios primarios y secundarios en instituciones del
-Valle del Cauca. Se graduó de Maestro en Bellas Artes en la especialidad de
-pintura, en la Universidad Nacional Santafé de Bogotá-Cundinamarca en
-1983. Continuó estudios de postgrado en la Universidad del Valle,
-obteniendo el título de Máster en comunicación y diseño cultural. Entre
-2002 y 2007 realizó estudios de doctorado en la Universidad Andina Simón
-Bolívar-Sede Quito, Ecuador, obteniendo el título de Doctor en Estudios
-Culturales Latinoamericanos.
+            Llevando a cabo sus estudios primarios y secundarios en instituciones del
+            Valle del Cauca. Se graduó de Maestro en Bellas Artes en la especialidad de
+            pintura, en la Universidad Nacional Santafé de Bogotá-Cundinamarca en
+            1983. Continuó estudios de postgrado en la Universidad del Valle,
+            obteniendo el título de Máster en comunicación y diseño cultural. Entre
+            2002 y 2007 realizó estudios de doctorado en la Universidad Andina Simón
+            Bolívar-Sede Quito, Ecuador, obteniendo el título de Doctor en Estudios
+            Culturales Latinoamericanos.
         </p>
+    </section>
+    
     <section class="info">
-        <h2>Trayectoria profesional</h2>
-                <li>Desde el año de 1988, ha trabajado con comunidades
-afrodescendientes del Valle del Patía, enfocándose en la
-recuperación de tradiciones culturales. Su proyecto
-"Recuperación de tradiciones culturales" dio origen al reconocido
-grupo de Cantaoras del Patía y al Son del Tuno de la vereda del
-Tuno.</li>
-                <li>Ha sido ponente en
-múltiples ocasiones en el Coloquio Internacional "El Caribe que
-nos Une", del Festival del Caribe, Fiesta del Fuego, en Santiago de
-Cuba, específicamente durante los años 2006, 2013 y 2016.
-En el año de 2016, colaboró en la realización de un mural colectivo
-junto a instructores de artes plásticas en el salón de danza de la
-Casa de Cultura de la comunidad de El Cobre, Cuba.
-Ahora, respecto a tiempos actuales, Adolfo Albán se dedica a
-laborar como docente-investigador del Departamento de Estudios
-Interculturales de la Universidad del Cauca-Popayán.</li>
-       
-            </ul>
-        </p>
+        <h2>TRAYECTORIA PROFESIONAL</h2>
+        <ul>
+            <li>Desde el año de 1988, ha trabajado con comunidades
+                afrodescendientes del Valle del Patía, enfocándose en la
+                recuperación de tradiciones culturales. Su proyecto
+                "Recuperación de tradiciones culturales" dio origen al reconocido
+                grupo de Cantaoras del Patía y al Son del Tuno de la vereda del
+                Tuno.</li>
+            <li>Ha sido ponente en
+                múltiples ocasiones en el Coloquio Internacional "El Caribe que
+                nos Une", del Festival del Caribe, Fiesta del Fuego, en Santiago de
+                Cuba, específicamente durante los años 2006, 2013 y 2016.
+                En el año de 2016, colaboró en la realización de un mural colectivo
+                junto a instructores de artes plásticas en el salón de danza de la
+                Casa de Cultura de la comunidad de El Cobre, Cuba.
+                Ahora, respecto a tiempos actuales, Adolfo Albán se dedica a
+                laborar como docente-investigador del Departamento de Estudios
+                Interculturales de la Universidad del Cauca-Popayán.</li>
+        </ul>
+    </section>
+    
     <section>
         <img src="fotos/adolfo2.jpg" alt="Imagen 2">
-        <section class="info">
-        <h2>Integrantes</h2>
-            <p>Karol Sofía Basante, Angy Natalia Cáceres, Katherin Canizales, Laura Daniela Gasca, David Alejandro Ordóñez, Evhelyn Kathalina Villota
-Katherin</p>
-
+    </section>
+        
+    <section class="info">
+        <h2>INTEGRANTES</h2>
+        <p>Karol Sofía Basante, Angy Natalia Cáceres, Katherin Canizales, Laura Daniela Gasca, David Alejandro Ordóñez, Evhelyn Kathalina Villota</p>
     </section>
 
-    <button onclick="window.location.href='index.html'">Volver al Inicio</button>
+    <button onclick="window.location.href='index.html'">¡VOLVER AL INICIO!</button>
 </body>
 </html>
