@@ -4,52 +4,232 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La chirimía</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Marvel:wght@700&display=swap');
+        
+        body {
+            background-color: #F5E7D3; /* Color tierra claro */
+            color: #3A2E1E; /* Marrón oscuro */
+            font-family: 'Marvel', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: radial-gradient(#D4B483 1px, transparent 1px);
+            background-size: 20px 20px;
+            line-height: 1.5;
+        }
+        
+        header {
+            background: linear-gradient(45deg, #8B2E2E 0%, #C44B4B 100%); /* Rojos tierra */
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid #D4B483; /* Beige */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        h1, h2 {
+            font-family: 'Bangers', cursive;
+            color: #E8D5A0; /* Amarillo tierra */
+            text-shadow: 3px 3px 0 #3A2E1E, -1px -1px 0 #3A2E1E, 
+                         1px -1px 0 #3A2E1E, -1px 1px 0 #3A2E1E, 
+                         1px 1px 0 #3A2E1E;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            transform: rotate(-2deg);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 3px solid #8B2E2E; /* Rojo tierra */
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+        
+        section {
+            background-color: rgba(255, 248, 240, 0.95); /* Beige claro */
+            color: #3A2E1E;
+            margin: 20px;
+            padding: 20px;
+            border: 3px solid #3A2E1E;
+            border-radius: 0;
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(139, 46, 46, 0.1) 0%, rgba(232, 213, 160, 0.1) 100%);
+            z-index: -1;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 3px solid #3A2E1E;
+            margin: 10px 0;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+            display: block;
+        }
+        
+        iframe {
+            border: 4px solid #3A2E1E;
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
+            margin: 15px 0;
+        }
+        
+        p, li {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        li::before {
+            content: "•";
+            color: #8B2E2E; /* Rojo tierra */
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        button {
+            background: linear-gradient(45deg, #8B2E2E 0%, #C44B4B 100%); /* Rojos tierra */
+            color: #E8D5A0; /* Amarillo tierra */
+            font-family: 'Bangers', cursive;
+            font-size: 1.2rem;
+            border: 3px solid #3A2E1E;
+            padding: 10px 20px;
+            margin: 20px;
+            cursor: pointer;
+            text-shadow: 2px 2px 0 #3A2E1E;
+            letter-spacing: 1px;
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            transform: rotate(-1deg);
+        }
+        
+        button:hover {
+            transform: rotate(1deg) scale(1.05);
+            box-shadow: 7px 7px 0 rgba(0,0,0,0.3);
+        }
+        
+        /* Comic speech bubble effect for sections */
+        .info {
+            position: relative;
+        }
+        
+        .info::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            right: 30px;
+            border-width: 20px 20px 0;
+            border-style: solid;
+            border-color: #FFF8F0 transparent;
+            display: block;
+            width: 0;
+        }
+        
+        .info::before {
+            content: "";
+            position: absolute;
+            bottom: -23px;
+            right: 28px;
+            border-width: 22px 22px 0;
+            border-style: solid;
+            border-color: #3A2E1E transparent;
+            display: block;
+            width: 0;
+            z-index: -1;
+        }
+        
+        /* Comic dot pattern overlay */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(#3A2E1E 10%, transparent 10%);
+            background-size: 10px 10px;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Adolfo Torres: La chirimía</h1>
+        <h1>ADOLFO TORRES: LA CHIRIMÍA</h1>
     </header>
 
     <section>
         <img src="fotos/chirimia1.jpg" alt="Imagen 1">
         <img src="fotos/chirimia2.jpg" alt="Imagen 2">
 
-<iframe src="https://drive.google.com/file/d/1_kMk0A6vYM8jml60DE254N73S5f6OZ8I/preview" 
-        width="100%" height="500px" allowfullscreen></iframe>
+        <iframe src="https://drive.google.com/file/d/1_kMk0A6vYM8jml60DE254N73S5f6OZ8I/preview" 
+                width="100%" height="500px" allowfullscreen></iframe>
+    </section>
+
     <section class="info">
-        <h2>Adolfo León Torres Rodríguez</h2>
+        <h2>ADOLFO LEÓN TORRES RODRÍGUEZ</h2>
+    </section>
+    
     <section>
         <img src="fotos/chirimiaa.jpg" alt="Imagen 3">
 
         <p>
             Adolfo León Torres Rodríguez nació en Popayán en 1951. Inició sus estudios en Contaduría en la Universidad del Cauca, pero posteriormente abandonó esta carrera para seguir su vocación artística, influenciado por los maestros Iván Valencia y Ever Astudillo. Se graduó en la Facultad de Artes de la misma universidad, donde más adelante se desempeñó como profesor de dibujo y pintura.
-Para continuar su formación, viajó a México y realizó una Maestría en Artes Visuales con énfasis en pintura en la Universidad Nacional Autónoma de México, obteniendo mención de honor por su trabajo plástico. A lo largo de su trayectoria, desarrolló series artísticas como Míticos (1988), Sacrificios (2002) y Viacrucis 500 años (1992), en las que explora temas como la memoria, la identidad y el sufrimiento humano. También realizó el monumento escultórico La Chirimía (2000), en homenaje a esta expresión musical popular del Cauca.
-
         </p>
-<section class="info">
-        <h2>La chirimía y su historia</h2>
-                <li>La chirimía es una expresión musical tradicional del Cauca, integrada por conjuntos donde predominan instrumentos de viento como flautas y percusión con tamboras. Originalmente introducida por los españoles con fines litúrgicos, la chirimía fue adoptada por las comunidades indígenas y campesinas, convirtiéndose en una parte esencial del folclore del suroccidente colombiano.
-En 1975, el maestro Adolfo Torres tuvo su primer encuentro con la chirimía en la Facultad de Humanidades de la Universidad del Cauca. Años después, inspirado por esta tradición musical, concibió la idea de crear un monumento en su honor. Finalmente, en el año 2000, se instalaron las ocho esculturas de bronce en la entrada sur de Popayán (Vía Panamericana, carrera 17 con calle 13). Estas figuras representan a músicos campesinos ataviados con sus ruanas y sombreros, dando la bienvenida a los visitantes de la ciudad.
-Más allá de su valor escultórico, el monumento a La Chirimía es un símbolo de identidad cultural para los payaneses. En torno a él, la vida cotidiana transcurre con trabajadores y artistas que encuentran en este espacio un punto de referencia para la expresión de sus talentos. Además, la chirimía sigue vigente en celebraciones como la Semana Santa y festividades decembrinas, donde es común ver "El Diablo", un personaje tradicional que recorre las calles acompañado por estos conjuntos musicales.
-</li>
-  
- <section class="info">
-        <h2>Características de la Chirimía
-</h2> 
-                <li>Se compone principalmente de flautas traversas de carrizo, tamboras, maracas y triángulo.</li>
-   <li>Es interpretada tanto en contextos religiosos como festivos. </li>
-   <li>Su música acompaña al "diablito", un personaje tradicional que recolecta dinero durante las celebraciones.</li>
-   <li>En la actualidad, agrupaciones como "Los Alegres de Almaguer" buscan mantener viva la tradición y atraer a nuevas generaciones.</li>
-       
-            </ul>
+        <p>
+            Para continuar su formación, viajó a México y realizó una Maestría en Artes Visuales con énfasis en pintura en la Universidad Nacional Autónoma de México, obteniendo mención de honor por su trabajo plástico. A lo largo de su trayectoria, desarrolló series artísticas como Míticos (1988), Sacrificios (2002) y Viacrucis 500 años (1992), en las que explora temas como la memoria, la identidad y el sufrimiento humano. También realizó el monumento escultórico La Chirimía (2000), en homenaje a esta expresión musical popular del Cauca.
         </p>
-         <section>
+    </section>
+    
+    <section class="info">
+        <h2>LA CHIRIMÍA Y SU HISTORIA</h2>
+        <ul>
+            <li>La chirimía es una expresión musical tradicional del Cauca, integrada por conjuntos donde predominan instrumentos de viento como flautas y percusión con tamboras. Originalmente introducida por los españoles con fines litúrgicos, la chirimía fue adoptada por las comunidades indígenas y campesinas, convirtiéndose en una parte esencial del folclore del suroccidente colombiano.</li>
+            <li>En 1975, el maestro Adolfo Torres tuvo su primer encuentro con la chirimía en la Facultad de Humanidades de la Universidad del Cauca. Años después, inspirado por esta tradición musical, concibió la idea de crear un monumento en su honor. Finalmente, en el año 2000, se instalaron las ocho esculturas de bronce en la entrada sur de Popayán (Vía Panamericana, carrera 17 con calle 13). Estas figuras representan a músicos campesinos ataviados con sus ruanas y sombreros, dando la bienvenida a los visitantes de la ciudad.</li>
+            <li>Más allá de su valor escultórico, el monumento a La Chirimía es un símbolo de identidad cultural para los payaneses. En torno a él, la vida cotidiana transcurre con trabajadores y artistas que encuentran en este espacio un punto de referencia para la expresión de sus talentos. Además, la chirimía sigue vigente en celebraciones como la Semana Santa y festividades decembrinas, donde es común ver "El Diablo", un personaje tradicional que recorre las calles acompañado por estos conjuntos musicales.</li>
+        </ul>
+    </section>
+    
+    <section class="info">
+        <h2>CARACTERÍSTICAS DE LA CHIRIMÍA</h2> 
+        <ul>
+            <li>Se compone principalmente de flautas traversas de carrizo, tamboras, maracas y triángulo.</li>
+            <li>Es interpretada tanto en contextos religiosos como festivos.</li>
+            <li>Su música acompaña al "diablito", un personaje tradicional que recolecta dinero durante las celebraciones.</li>
+            <li>En la actualidad, agrupaciones como "Los Alegres de Almaguer" buscan mantener viva la tradición y atraer a nuevas generaciones.</li>
+        </ul>
+    </section>
+    
+    <section>
         <img src="fotos/chirimiachicos.jpg" alt="Imagen 4">
-        <h2>Integrantes</h2>
-            <p>Angélica Rivera Girón, Sofía Calderón, Sofía Bastidas, María Camila Rengifo, Fabio Alessandro Chantré, Andrés Sánchez</p>
+        <h2>INTEGRANTES</h2>
+        <p>Angélica Rivera Girón, Sofía Calderón, Sofía Bastidas, María Camila Rengifo, Fabio Alessandro Chantré, Andrés Sánchez</p>
     </section>
 
+    <button onclick="window.location.href='index.html'">VOLVER AL INICIO</button>
+</body>
+</html>
     <button onclick="window.location.href='index.html'">Volver al Inicio</button>
 </body>
 </html>
