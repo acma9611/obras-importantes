@@ -4,110 +4,402 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apoteosis a Popayán</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Anton&family=Special+Elite&display=swap');
+        
+        :root {
+            --red: #E63946;
+            --blue: #1D3557;
+            --cream: #F1FAEE;
+            --light-blue: #A8DADC;
+            --dark: #1A1A1A;
+        }
+        
+        body {
+            background-color: var(--cream);
+            color: var(--dark);
+            font-family: 'Special Elite', cursive;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.transparenttextures.com/patterns/notebook.png');
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(45deg, var(--blue) 0%, var(--red) 100%);
+            padding: 25px;
+            text-align: center;
+            border-bottom: 8px solid var(--light-blue);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="50" height="50" x="0" y="0" fill="none" stroke="%23F1FAEE" stroke-width="2"/><rect width="50" height="50" x="50" y="50" fill="none" stroke="%23F1FAEE" stroke-width="2"/></svg>');
+            opacity: 0.15;
+        }
+        
+        h1 {
+            font-family: 'Bangers', cursive;
+            color: var(--light-blue);
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 4px 4px 0 var(--dark), 
+                         -1px -1px 0 var(--dark), 
+                         1px -1px 0 var(--dark), 
+                         -1px 1px 0 var(--dark), 
+                         1px 1px 0 var(--dark);
+            letter-spacing: 3px;
+            transform: rotate(-2deg);
+            position: relative;
+        }
+        
+        h2 {
+            font-family: 'Anton', sans-serif;
+            color: var(--red);
+            font-size: 2rem;
+            border-bottom: 4px solid var(--blue);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin: 25px 0 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        section {
+            background-color: white;
+            margin: 25px auto;
+            padding: 25px;
+            max-width: 900px;
+            border-radius: 0;
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
+            border: 4px solid var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            right: 30px;
+            border-width: 20px 20px 0;
+            border-style: solid;
+            border-color: white transparent;
+            display: block;
+            width: 0;
+        }
+        
+        section::before {
+            content: "";
+            position: absolute;
+            bottom: -23px;
+            right: 28px;
+            border-width: 22px 22px 0;
+            border-style: solid;
+            border-color: var(--dark) transparent;
+            display: block;
+            width: 0;
+            z-index: -1;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 4px solid var(--dark);
+            margin: 15px 0;
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
+            display: block;
+            background-color: white;
+            padding: 5px;
+        }
+        
+        iframe {
+            border: 4px solid var(--dark);
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
+            margin: 20px 0;
+            background: white;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 15px;
+            border-left: 3px solid var(--red);
+        }
+        
+        .critical-note {
+            background-color: #FFF8E1;
+            border-left: 5px solid var(--red);
+            padding: 15px;
+            margin: 20px 0;
+            font-family: 'Special Elite', cursive;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .critical-note::before {
+            content: "!";
+            position: absolute;
+            left: -15px;
+            top: -15px;
+            background-color: var(--red);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Anton', sans-serif;
+            font-size: 1.5rem;
+            box-shadow: 2px 2px 0 var(--dark);
+        }
+        
+        button {
+            background: linear-gradient(45deg, var(--red) 0%, var(--blue) 100%);
+            color: white;
+            font-family: 'Bangers', cursive;
+            font-size: 1.5rem;
+            border: none;
+            padding: 12px 30px;
+            margin: 30px auto;
+            display: block;
+            cursor: pointer;
+            border-radius: 0;
+            box-shadow: 5px 5px 0 var(--dark);
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            transform: rotate(-1deg);
+        }
+        
+        button:hover {
+            transform: rotate(1deg) scale(1.05);
+            box-shadow: 8px 8px 0 var(--dark);
+        }
+        
+        button::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.2);
+            transform: rotate(30deg);
+            transition: all 0.3s;
+        }
+        
+        button:hover::after {
+            left: 100%;
+        }
+        
+        /* Comic panels */
+        .comic-panel {
+            border: 3px solid var(--dark);
+            padding: 15px;
+            margin: 20px 0;
+            background-color: white;
+            position: relative;
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.1);
+        }
+        
+        .comic-panel::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            right: 20px;
+            border-width: 15px 15px 0;
+            border-style: solid;
+            border-color: white transparent;
+        }
+        
+        .comic-panel::before {
+            content: "";
+            position: absolute;
+            bottom: -18px;
+            right: 18px;
+            border-width: 17px 17px 0;
+            border-style: solid;
+            border-color: var(--dark) transparent;
+            z-index: -1;
+        }
+        
+        /* Thought bubble */
+        .thought-bubble {
+            position: relative;
+            background-color: white;
+            border: 3px solid var(--dark);
+            border-radius: 50px;
+            padding: 20px;
+            margin: 30px 0;
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.1);
+        }
+        
+        .thought-bubble::before, 
+        .thought-bubble::after {
+            content: "";
+            position: absolute;
+            background-color: white;
+            border: 3px solid var(--dark);
+            border-radius: 50%;
+        }
+        
+        .thought-bubble::before {
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            top: 40%;
+        }
+        
+        .thought-bubble::after {
+            width: 15px;
+            height: 15px;
+            right: -25px;
+            top: 30%;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            section {
+                margin: 15px;
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Efraím Martínez: Apoteosis a Popayán</h1>
+        <h1>EFRAÍM MARTÍNEZ: APOTEOSIS A POPAYÁN</h1>
     </header>
 
     <section>
         <img src="fotos/apoteosis2.jpg" alt="Imagen 1">
         <img src="fotos/apoteosis.jpg" alt="Imagen 2">
-<iframe src="https://drive.google.com/file/d/1eOGEss7u_AMBRWsG3uk9NK8knrPOLf65/preview" 
-        width="100%" height="500px" allowfullscreen></iframe>
 
-    <section class="info">
-        <h2>Efraím
-Martínez</h2>
-        <p>
-           Pintor caucano (Popayán, diciembre 17 de 1898 - marzo 27 de 1956). Hijo
-de Ángel Custodio Martínez y nieto del sargento mayor Pascasio
-Martínez, el joven boyacense que pasó por Popayán con el Libertador,
-después de haber combatido valerosamente en Boyacá; los primeros
-años de la vida de Efraín Martínez transcurrieron en la hacienda Los
-Tejares o El Refugio, construcción de mediados del siglo XVII enclavada
-en las afueras de la ciudad. A la edad de siete años ingresó a la escuela
-de El Carmen, regentada por los hermanos maristas, donde realizó sus
-primeros estudios; a los trece pasó a la Universidad a cursar bachillerato.
-Cuando se creó la Escuela de Pintura anexa a la Universidad, Martínez
-cursaba su tercer año de estudios; entonces se inscribió en la Escuela de
-Pintura, junto con José Vicente Rivera, Antonio M. Tafur, Arturo Aragón,
-Hernando Arboleda e Hipólito Castrillón, todos alumnos de Emilio
-Porcet, el primer director de la Escuela, y luego de Coriolano Leudo.
-En 1929 viajó a París, y un año después regresó influido por las escuelas
-francesas de fin de siglo. A esta segunda época pertenecen sus obras
-Tapices tropicales, Los Trípticos y La Lechera, ejecutados para decorar el
-foyer del Teatro Municipal de Cali, y los retratos Valencia barbado y
-Valencia y Sanín, considerados dos de sus mejores pinturas. Entre 1931 y
-1933 trabajó en Popayán y se desempeñó como profesor de la Escuela de
-Bellas Artes de la ciudad. En 1933 fundó la Escuela de Bellas Artes de
-Cali, y fue su director hasta 1938.
-En 1938, Martínez recibió el encargo de la que, a la postre, se convirtió en
-su obra más famosa: Apoteosis de Popayán, que, basada en el Canto a
-Popayán, del maestro Guillermo Valencia, decora el Paraninfo Caldas de
-la Universidad del Cauca, con motivo de celebrarse el IV Centenario de la
-Fundación de la ciudad (1536-1936).</p>
-
-<iframe src="https://drive.google.com/file/d/1mrzbvSNveYa0UuAHCcpZRdMXxikCJ6qw/preview" 
-        width="100%" height="500px" allowfullscreen></iframe>
-
- <section class="info">
-        <h2>Apoteosis de Popayán</h2> 
-                <p>Cuando nos detenemos a observar La Apoteosis de Popayán de Efraím Martínez, lo primero
-que sentimos es el peso de la historia y la grandeza con la que está pintada la obra. A simple
-vista, parece un homenaje visual a todos esos personajes que, según la narrativa oficial,
-construyeron la ciudad y aportaron al país. Sin embargo, al mirar más allá de la técnica y los
-colores, empiezan a surgir preguntas que como estudiantes de Comunicación Social no
-podemos ignorar.
-Esta pintura, más que una simple representación artística, es un mensaje cargado de poder. Es
-una forma de contar la historia desde una mirada selectiva, donde solo algunos personajes;
-los de siempre, son dignos de ser recordados y exaltados. Políticos, religiosos, intelectuales y
-científicos, en su mayoría hombres blancos y pertenecientes a la élite, son los protagonistas
-de esta “apoteosis”. Y esa selección no es casual: responde a una visión de ciudad y de país
-que ha predominado por siglos.
-Nos parece inevitable pensar en todo lo que no está representado en esa pintura. ¿Dónde están
-los pueblos indígenas, las comunidades afrodescendientes, las mujeres y las clases populares
-que también han sido protagonistas de la historia de Popayán? La ausencia de estos grupos
-nos habla de una narrativa incompleta y excluyente, que se repite en muchos otros espacios y
-momentos de la historia oficial.
-Desde la estética, reconocemos que la obra es majestuosa. La composición, los colores y esa
-atmósfera casi celestial logran transmitir una idea de grandeza y orgullo. Pero precisamente
-esa belleza es la que termina disfrazando un mensaje profundamente ideológico: la
-glorificación de una élite que se ha encargado de escribir la historia desde su posición de
-poder.
-No podemos pasar por alto el papel que juega esta pintura como un dispositivo de
-comunicación. La Apoteosis de Popayán no es sólo arte: es un relato visual que actúa como
-una especie de “agenda” donde se decide quiénes merecen ser recordados y quiénes quedan
-en el olvido. Y esto sigue siendo muy parecido a lo que hacen los medios de comunicación
-hoy en día cuando priorizan unas historias sobre otras.
-Al reflexionar sobre esta obra, entendemos que el arte también construye imaginarios, y
-muchas veces refuerza las estructuras de poder y desigualdad. Nos invita a preguntarnos:
-¿quiénes han sido históricamente los protagonistas de las historias que nos han contado?
-¿Qué pasaría si hoy pensáramos en una nueva “apoteosis” que incluyera los rostros y las
-voces de quienes siempre han sido silenciados?
-Para nosotros, este análisis no solo nos deja pensando en la pintura, sino en la responsabilidad
-que tenemos como futuros comunicadores. Narrar la historia no puede seguir siendo solo
-
-tarea de las élites; también tenemos el deber de abrir espacios a esas otras voces que merecen
-ser escuchadas y representadas.
-Porque al final, la belleza del arte no solo está en lo que muestra, sino también en su
-capacidad de hacernos pensar, incomodarnos y cuestionar lo que siempre hemos creído como
-“la verdad”.</p>
-
-<iframe src="https://drive.google.com/file/d/1-MzgVma6p7wtxzE_fKSomxKHfmWN7Aai/preview" 
-        width="100%" height="500px" allowfullscreen></iframe>
-  
-       
-            </ul>
-        </p>
-     <section>
-        <img src="fotos/apoteosischicos.jpg" alt="Imagen 3">
-          <section class="info">
-        <h2>Integrantes</h2>
-              <p>Merly Samboni, Juliana Muñoz, Ángel Gálvez, María José, Tatiana Álvarez, Derli Montilla y Maythan Sánchez</p>
+        <iframe src="https://drive.google.com/file/d/1eOGEss7u_AMBRWsG3uk9NK8knrPOLf65/preview" 
+                width="100%" height="500px" allowfullscreen></iframe>
     </section>
 
-    <button onclick="window.location.href='index.html'">Volver al Inicio</button>
+    <section class="info">
+        <h2>EFRAÍM MARTÍNEZ</h2>
+        <p>
+            Pintor caucano (Popayán, diciembre 17 de 1898 - marzo 27 de 1956). Hijo
+            de Ángel Custodio Martínez y nieto del sargento mayor Pascasio
+            Martínez, el joven boyacense que pasó por Popayán con el Libertador,
+            después de haber combatido valerosamente en Boyacá; los primeros
+            años de la vida de Efraín Martínez transcurrieron en la hacienda Los
+            Tejares o El Refugio, construcción de mediados del siglo XVII enclavada
+            en las afueras de la ciudad.
+        </p>
+        <p>
+            A la edad de siete años ingresó a la escuela de El Carmen, regentada por los hermanos maristas, donde realizó sus
+            primeros estudios; a los trece pasó a la Universidad a cursar bachillerato.
+            Cuando se creó la Escuela de Pintura anexa a la Universidad, Martínez
+            cursaba su tercer año de estudios; entonces se inscribió en la Escuela de
+            Pintura, junto con José Vicente Rivera, Antonio M. Tafur, Arturo Aragón,
+            Hernando Arboleda e Hipólito Castrillón, todos alumnos de Emilio
+            Porcet, el primer director de la Escuela, y luego de Coriolano Leudo.
+        </p>
+    </section>
+    
+    <section class="comic-panel">
+        <img src="fotos/apoteosischicos.jpg" alt="Imagen 3">
+        <p>
+            En 1929 viajó a París, y un año después regresó influido por las escuelas
+            francesas de fin de siglo. A esta segunda época pertenecen sus obras
+            Tapices tropicales, Los Trípticos y La Lechera, ejecutados para decorar el
+            foyer del Teatro Municipal de Cali, y los retratos Valencia barbado y
+            Valencia y Sanín, considerados dos de sus mejores pinturas.
+        </p>
+    </section>
+    
+    <section class="thought-bubble">
+        <p>
+            En 1938, Martínez recibió el encargo de la que, a la postre, se convirtió en
+            su obra más famosa: Apoteosis de Popayán, que, basada en el Canto a
+            Popayán, del maestro Guillermo Valencia, decora el Paraninfo Caldas de
+            la Universidad del Cauca, con motivo de celebrarse el IV Centenario de la
+            Fundación de la ciudad (1536-1936).
+        </p>
+    </section>
+    
+    <iframe src="https://drive.google.com/file/d/1mrzbvSNveYa0UuAHCcpZRdMXxikCJ6qw/preview" 
+            width="100%" height="500px" allowfullscreen></iframe>
+    
+    <section class="critical-note">
+        <h2>APOTEOSIS DE POPAYÁN: UNA MIRADA CRÍTICA</h2>
+        <p>
+            Cuando nos detenemos a observar La Apoteosis de Popayán de Efraím Martínez, lo primero
+            que sentimos es el peso de la historia y la grandeza con la que está pintada la obra. A simple
+            vista, parece un homenaje visual a todos esos personajes que, según la narrativa oficial,
+            construyeron la ciudad y aportaron al país. Sin embargo, al mirar más allá de la técnica y los
+            colores, empiezan a surgir preguntas que como estudiantes de Comunicación Social no
+            podemos ignorar.
+        </p>
+        <p>
+            Esta pintura, más que una simple representación artística, es un mensaje cargado de poder. Es
+            una forma de contar la historia desde una mirada selectiva, donde solo algunos personajes;
+            los de siempre, son dignos de ser recordados y exaltados. Políticos, religiosos, intelectuales y
+            científicos, en su mayoría hombres blancos y pertenecientes a la élite, son los protagonistas
+            de esta "apoteosis". Y esa selección no es casual: responde a una visión de ciudad y de país
+            que ha predominado por siglos.
+        </p>
+    </section>
+    
+    <section class="comic-panel">
+        <p>
+            Nos parece inevitable pensar en todo lo que no está representado en esa pintura. ¿Dónde están
+            los pueblos indígenas, las comunidades afrodescendientes, las mujeres y las clases populares
+            que también han sido protagonistas de la historia de Popayán? La ausencia de estos grupos
+            nos habla de una narrativa incompleta y excluyente, que se repite en muchos otros espacios y
+            momentos de la historia oficial.
+        </p>
+    </section>
+    
+    <iframe src="https://drive.google.com/file/d/1-MzgVma6p7wtxzE_fKSomxKHfmWN7Aai/preview" 
+            width="100%" height="500px" allowfullscreen></iframe>
+    
+    <section class="critical-note">
+        <p>
+            Desde la estética, reconocemos que la obra es majestuosa. La composición, los colores y esa
+            atmósfera casi celestial logran transmitir una idea de grandeza y orgullo. Pero precisamente
+            esa belleza es la que termina disfrazando un mensaje profundamente ideológico: la
+            glorificación de una élite que se ha encargado de escribir la historia desde su posición de
+            poder.
+        </p>
+        <p>
+            No podemos pasar por alto el papel que juega esta pintura como un dispositivo de
+            comunicación. La Apoteosis de Popayán no es sólo arte: es un relato visual que actúa como
+            una especie de "agenda" donde se decide quiénes merecen ser recordados y quiénes quedan
+            en el olvido. Y esto sigue siendo muy parecido a lo que hacen los medios de comunicación
+            hoy en día cuando priorizan unas historias sobre otras.
+        </p>
+    </section>
+    
+    <section class="info">
+        <h2>INTEGRANTES</h2>
+        <p>Merly Samboni, Juliana Muñoz, Ángel Gálvez, María José, Tatiana Álvarez, Derli Montilla y Maythan Sánchez</p>
+    </section>
+
+    <button onclick="window.location.href='index.html'">VOLVER AL INICIO</button>
 </body>
 </html>
