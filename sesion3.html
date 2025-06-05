@@ -353,89 +353,99 @@
                 <img src="fotos/tripico2.jpg" alt="Panel derecho" class="comic-image">
             </div>
             <div class="vertical-videos">
-    <!-- Video 1 -->
-    <div class="video-container">
+    <div class="video-triptych">
+    <!-- Video izquierdo -->
+    <div class="video-wrapper left-video">
         <iframe src="https://drive.google.com/file/d/19de-J7ZpKoMsp-Azej2f6Wk-27Wuyge6/preview" 
-                width="100%" height="315" 
-                allowfullscreen
-                class="vertical-iframe">
-        </iframe>
-        <div class="video-label">Pilar Madrid - Las letras</div>
+                width="100%" height="500" allowfullscreen></iframe>
+        <div class="video-caption">Pilar Madrid - Las letras</div>
     </div>
-
-    <!-- Video 2 -->
-    <div class="video-container">
+    
+    <!-- Video central -->
+    <div class="video-wrapper center-video">
         <iframe src="https://drive.google.com/file/d/1PSY5pUQUSo7f3xuEAGamu0-YmaoZc5Ri/preview" 
-                width="100%" height="315" 
-                allowfullscreen
-                class="vertical-iframe">
-        </iframe>
-        <div class="video-label">Cristina Ortega - Las Artes</div>
+                width="100%" height="500" allowfullscreen></iframe>
+        <div class="video-caption">Cristina Ortega - Las Artes</div>
     </div>
-
-    <!-- Video 3 -->
-    <div class="video-container">
+    
+    <!-- Video derecho -->
+    <div class="video-wrapper right-video">
         <iframe src="https://drive.google.com/file/d/1jZ9xe3_6lcT5vLLKHVt4GQtxhk3mDOOE/preview" 
-                width="100%" height="315" 
-                allowfullscreen
-                class="vertical-iframe">
-        </iframe>
-        <div class="video-label">Yudeilin Ortega - La ciencia</div>
+                width="100%" height="500" allowfullscreen></iframe>
+        <div class="video-caption">Yudeilin Ortega - La ciencia</div>
     </div>
 </div>
 
 <style>
-    /* Contenedor principal */
-    .vertical-videos {
+    /* CONTENEDOR PRINCIPAL */
+    .video-triptych {
         display: flex;
-        flex-direction: column;
-        gap: 30px;
-        max-width: 400px; /* Ancho máximo para formato vertical */
+        justify-content: space-between;
+        max-width: 1200px;
         margin: 0 auto;
         padding: 20px;
+        gap: 15px;
     }
 
-    /* Cada contenedor de video */
-    .video-container {
-        position: relative;
+    /* MARCO DE VIDEO GENÉRICO */
+    .video-wrapper {
+        flex: 1;
+        min-width: 0; /* Permite que los iframes se ajusten */
         border: 5px solid #000;
         box-shadow: 8px 8px 0 #CC0000;
         background: white;
-        transition: transform 0.3s;
+        position: relative;
     }
 
-    .video-container:hover {
-        transform: translateY(-5px);
+    /* POSICIONES ESPECÍFICAS */
+    .left-video {
+        transform: rotate(-2deg);
+        margin-top: 20px;
     }
 
-    /* Iframe vertical */
-    .vertical-iframe {
-        aspect-ratio: 9/16; /* Relación vertical típica (9:16) */
-        height: 500px; /* Altura fija */
-        display: block;
-        border: none;
+    .center-video {
+        z-index: 2; /* Para que quede sobrepuesto */
+        transform: scale(1.05);
+        box-shadow: 10px 10px 0 #FFCC00 !important;
     }
 
-    /* Etiqueta del video */
-    .video-label {
+    .right-video {
+        transform: rotate(2deg);
+        margin-top: 20px;
+    }
+
+    /* ETIQUETAS */
+    .video-caption {
         padding: 10px;
         background: #0066CC;
         color: white;
         text-align: center;
         font-family: 'Bangers', cursive;
         letter-spacing: 1px;
-        border-top: 3px solid #FFCC00;
+        border-top: 3px solid #000;
     }
 
-    /* Responsive */
-    @media (max-width: 600px) {
-        .vertical-iframe {
-            height: 400px;
+    /* IFRAME (vertical) */
+    .video-wrapper iframe {
+        aspect-ratio: 9/16;
+        height: 500px;
+        display: block;
+        border: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .video-triptych {
+            flex-direction: column;
+            align-items: center;
         }
-        
-        .vertical-videos {
-            max-width: 100%;
-            padding: 10px;
+        .video-wrapper {
+            width: 90%;
+            margin: 10px 0;
+            transform: none !important;
+        }
+        .center-video {
+            order: -1; /* El centro va primero en móvil */
         }
     }
 </style>
