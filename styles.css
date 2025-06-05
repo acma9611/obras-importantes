@@ -1,3 +1,60 @@
+/* IMÁGENES DE FONDO */
+/* ====================== */
+.background-decor {
+  position: fixed;
+  z-index: -1;
+  opacity: 0.12;
+  filter: sepia(30%) brightness(110%);
+  pointer-events: none;
+  background-size: cover;
+}
+
+/* Esquina superior izquierda */
+.bg-left {
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  background-image: url('fotos/decor-left.jpg');
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+/* Esquina superior derecha */
+.bg-right {
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background-image: url('fotos/decor-right.jpg');
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+}
+
+/* Centro inferior */
+.bg-bottom {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+  height: 180px;
+  background-image: url('fotos/decor-center.jpg');
+  clip-path: polygon(20% 0, 80% 0, 100% 100%, 0% 100%);
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+  .background-decor {
+    opacity: 0.08;
+  }
+  .bg-left, .bg-right {
+    width: 150px;
+    height: 150px;
+  }
+  .bg-bottom {
+    width: 200px;
+    height: 100px;
+  }
+}
+
 /* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
