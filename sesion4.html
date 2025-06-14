@@ -32,6 +32,54 @@
             padding: 20px;
         }
         
+        /* Estilos para el reproductor de música */
+        #music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--yellow);
+            border: 3px solid var(--black);
+            border-radius: 50px;
+            padding: 10px 15px;
+            box-shadow: 5px 5px 0 var(--black);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: rotate(-5deg);
+            transition: all 0.3s;
+        }
+        
+        #music-player:hover {
+            transform: rotate(0deg) scale(1.05);
+            background-color: var(--orange);
+        }
+        
+        #music-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--black);
+        }
+        
+        #music-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        #music-label {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        audio {
+            display: none;
+        }
+        
+        /* Resto de tus estilos existentes... */
         header {
             background: linear-gradient(135deg, var(--orange) 0%, #E4572E 100%);
             padding: 30px 20px;
@@ -292,12 +340,34 @@
                 height: 70px;
                 font-size: 0.7rem;
             }
+            
+            #music-player {
+                bottom: 10px;
+                right: 10px;
+                padding: 8px 12px;
+            }
+            
+            #music-label {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="comic-container">
         <div class="stamp stamp-1">ARTE<br>HISTÓRICO</div>
+        
+        <!-- Reproductor de música -->
+        <div id="music-player">
+            <audio id="bg-music" loop>
+                <source src="fotos/HIJXS-DE-LA-TIERRA-CRISTIAN-MARSHAL.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <button id="music-toggle">🎵</button>
+            <div id="music-controls">
+                <span id="music-label">Música ON</span>
+            </div>
+        </div>
         
         <header>
             <h1>AUGUSTO RIVERA: FUNDACIÓN DE POPAYÁN</h1>
@@ -343,5 +413,44 @@
         
         <div class="stamp stamp-2">PATRIMONIO<br>CULTURAL</div>
     </div>
+
+    <script>
+        // Control de la música de fondo
+        const bgMusic = document.getElementById('bg-music');
+        const musicToggle = document.getElementById('music-toggle');
+        const musicLabel = document.getElementById('music-label');
+        
+        // Intentar reproducir automáticamente (puede ser bloqueado por el navegador)
+        document.addEventListener('DOMContentLoaded', function() {
+            const playPromise = bgMusic.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    // La reproducción automática falló, mostramos el control
+                    musicLabel.textContent = "Click para reproducir";
+                });
+            }
+        });
+        
+        // Control para pausar/reanudar
+        musicToggle.addEventListener('click', function() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicToggle.textContent = "🎵";
+                musicLabel.textContent = "Música ON";
+            } else {
+                bgMusic.pause();
+                musicToggle.textContent = "🔇";
+                musicLabel.textContent = "Música OFF";
+            }
+        });
+        
+        // Cambiar el icono cuando la música termina (aunque está en bucle)
+        bgMusic.addEventListener('ended', function() {
+            musicToggle.textContent = "🔇";
+            musicLabel.textContent = "Música OFF";
+        });
+    </script>
 </body>
+</html>
 </html>
