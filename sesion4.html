@@ -722,7 +722,7 @@
                 <p>A través de mi experiencia, he aprendido que la resistencia a través de la organización social es un proceso poderoso que nos permite unir fuerzas y potencializar la participación ciudadana. Hemos utilizado diversas herramientas para lograr nuestros objetivos, como la movilización social, la formación académica, la conciencia social y la participación política y ciudadana.</p>
             </div>
             
-            <!-- Tercer contrarrelato -->
+            <!-- Tercer contrarrelato (video actualizado) -->
             <div class="contrarrelato">
                 <h3>Isabel Avirama (2025)</h3>
                 <p>Colectivo Amapola, Mesa Gráfica del Cauca.</p>
@@ -740,21 +740,37 @@
                 
                 <p>No se puede negar que nos esclavizaron y nos maltrataron, quitándonos nuestra identidad y creencias. La colonización estuvo cargada de religión, mientras que nosotros entendíamos la espiritualidad de otra manera, por lo que nos impusieron algo que no era parte de nuestra identidad.</p>
                 
-                <video class="contrarrelato-video" controls>
-                    <source src="fotos/Contrarrelato (2).mp4" type="video/mp4">
-                    Tu navegador no soporta el elemento de video.
-                </video>
+                <!-- Video actualizado del tercer contrarrelato -->
+                <iframe class="contrarrelato-video" 
+                        src="https://drive.google.com/file/d/1602mDk2IRnd4ujO6dNPAbevXXBsRaPuJ/preview" 
+                        allowfullscreen>
+                </iframe>
             </div>
             
-            <!-- Cuarto contrarrelato (solo video) -->
+            <!-- Cuarto contrarrelato actualizado: "RESISTENCIA DESDE LA EDUCACIÓN" -->
             <div class="contrarrelato">
-                <h3>Voces Ancestrales (2025)</h3>
-                <p>Testimonios de resistencia cultural</p>
+                <h3>RESISTENCIA DESDE LA EDUCACIÓN (2025)</h3>
+                <p>Testimonios sobre el poder transformador de la educación</p>
                 
-                <video class="contrarrelato-video" controls>
-                    <source src="fotos/Contrarrelato (1).mp4" type="video/mp4">
-                    Tu navegador no soporta el elemento de video.
-                </video>
+                <div class="contrarrelato-quote">
+                    "La educación es el arma más poderosa que tenemos para transformar la sociedad. A través de ella mantenemos vivas nuestras tradiciones y construimos un futuro mejor para nuestras comunidades."
+                </div>
+                
+                <p>En las comunidades indígenas del Cauca, la educación ha sido un pilar fundamental para preservar nuestra identidad cultural. A través de escuelas propias y programas bilingües, estamos recuperando saberes ancestrales que el sistema educativo tradicional había marginado.</p>
+                
+                <div class="contrarrelato-grid">
+                    <img src="fotos/educacion1.jpg" alt="Escuela comunitaria" class="contrarrelato-img">
+                    <img src="fotos/educacion2.jpg" alt="Taller de saberes ancestrales" class="contrarrelato-img">
+                    <img src="fotos/educacion3.jpg" alt="Materiales educativos" class="contrarrelato-img">
+                </div>
+                
+                <p>Este proceso no ha sido fácil. Hemos enfrentado desafíos como la falta de recursos, la discriminación y la violencia. Pero cada día, más jóvenes se suman a este movimiento educativo que combina conocimientos ancestrales con saberes contemporáneos.</p>
+                
+                <!-- Video del cuarto contrarrelato -->
+                <iframe class="contrarrelato-video" 
+                        src="https://drive.google.com/file/d/1AXwDS10EyO6JqCS1-GKJUXGHX4Bibe6e/preview" 
+                        allowfullscreen>
+                </iframe>
             </div>
             
             <img src="fotos/integrantefun.jpg" alt="Equipo de trabajo" class="comic-image">
@@ -794,18 +810,18 @@
             if (bgMusic.paused) {
                 bgMusic.play();
                 musicToggle.textContent = "🎵";
-                musicLabel.textContent = "Música ON";
+                musicLabel.textContent = "";
             } else {
                 bgMusic.pause();
                 musicToggle.textContent = "🔇";
-                musicLabel.textContent = "Música OFF";
+                musicLabel.textContent = "";
             }
         });
         
         // Cambiar el icono cuando la música termina (aunque está en bucle)
         bgMusic.addEventListener('ended', function() {
             musicToggle.textContent = "🔇";
-            musicLabel.textContent = "Música OFF";
+            musicLabel.textContent = "";
         });
     </script>
 </body>
