@@ -13,6 +13,10 @@
             --cream: #F7F7F2;
             --black: #131112;
             --yellow: #FFD166;
+            --earth1: #8B5A2B;
+            --earth2: #A67C52;
+            --earth3: #BF9773;
+            --earth4: #D9B38C;
         }
         
         body {
@@ -79,6 +83,122 @@
             display: none;
         }
         
+        /* Estilos para las nuevas secciones de contrarrelatos */
+        .contrarrelato {
+            background-color: var(--earth4);
+            border: 5px solid var(--earth1);
+            padding: 25px;
+            margin: 40px 0;
+            position: relative;
+            box-shadow: 8px 8px 0 var(--earth1);
+            font-family: 'Special Elite', cursive;
+            border-radius: 15px;
+        }
+        
+        .contrarrelato::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--earth1), var(--earth2), var(--earth3));
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .contrarrelato h3 {
+            font-family: 'Permanent Marker', cursive;
+            color: var(--earth1);
+            font-size: 1.8rem;
+            margin-top: 10px;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+            text-align: center;
+            transform: rotate(-1deg);
+        }
+        
+        .contrarrelato-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .contrarrelato-img {
+            border: 3px solid var(--earth1);
+            box-shadow: 5px 5px 0 var(--earth2);
+            transition: transform 0.3s;
+            background-color: var(--cream);
+            padding: 3px;
+            border-radius: 8px;
+        }
+        
+        .contrarrelato-img:hover {
+            transform: rotate(2deg) scale(1.05);
+        }
+        
+        .contrarrelato-video {
+            width: 100%;
+            border: 3px solid var(--earth1);
+            box-shadow: 5px 5px 0 var(--earth2);
+            background-color: var(--cream);
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .contrarrelato-quote {
+            font-style: italic;
+            border-left: 4px solid var(--earth1);
+            padding-left: 15px;
+            margin: 15px 0;
+            color: var(--black);
+            background-color: rgba(139, 90, 43, 0.1);
+            padding: 10px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        /* Estilo especial para el iframe de teléfono */
+        .phone-frame {
+            max-width: 300px;
+            margin: 20px auto;
+            border: 8px solid var(--earth1);
+            border-radius: 30px;
+            padding: 10px;
+            background: var(--earth3);
+            box-shadow: 8px 8px 0 var(--earth1);
+            position: relative;
+        }
+        
+        .phone-frame::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 8px;
+            background: var(--earth1);
+            border-radius: 10px;
+        }
+        
+        .phone-frame::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 6px;
+            background: var(--earth1);
+            border-radius: 10px;
+        }
+        
+        .phone-iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 20px;
+        }
+        
         /* Resto de tus estilos existentes... */
         header {
             background: linear-gradient(135deg, var(--orange) 0%, #E4572E 100%);
@@ -88,6 +208,7 @@
             margin-bottom: 40px;
             position: relative;
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-radius: 15px;
         }
         
         header::after {
@@ -135,7 +256,7 @@
         .comic-panel {
             background-color: var(--cream);
             border: 5px solid var(--black);
-            border-radius: 0;
+            border-radius: 15px;
             box-shadow: 10px 10px 0 rgba(0,78,137,0.3);
             margin: 40px 0;
             padding: 30px;
@@ -165,6 +286,7 @@
             background-color: var(--cream);
             padding: 5px;
             transition: transform 0.3s;
+            border-radius: 8px;
         }
         
         .comic-image:hover {
@@ -183,6 +305,7 @@
             box-shadow: 8px 8px 0 rgba(0,78,137,0.5);
             margin: 30px 0;
             background: var(--cream);
+            border-radius: 8px;
         }
         
         p {
@@ -228,6 +351,7 @@
             margin: 50px 0 30px;
             box-shadow: 8px 8px 0 rgba(0,78,137,0.5);
             position: relative;
+            border-radius: 15px;
         }
         
         .members h2 {
@@ -252,6 +376,7 @@
             position: relative;
             overflow: hidden;
             transform: rotate(2deg);
+            border-radius: 10px;
         }
         
         .comic-button:hover {
@@ -350,6 +475,14 @@
             #music-label {
                 font-size: 0.8rem;
             }
+            
+            .contrarrelato-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .phone-frame {
+                max-width: 250px;
+            }
         }
     </style>
 </head>
@@ -379,8 +512,10 @@
                 <img src="fotos/Fundación de Popayán 5.jpg" alt="Detalle de la obra" class="comic-image">
             </div>
             
-            <iframe src="https://drive.google.com/file/d/1jR8sztxT5A7hprzInwEotPgz3sq37-pg/preview" 
-                    width="100%" height="500px" allowfullscreen></iframe>
+            <div class="phone-frame">
+                <iframe src="https://drive.google.com/file/d/1jR8sztxT5A7hprzInwEotPgz3sq37-pg/preview" 
+                        class="phone-iframe" allowfullscreen></iframe>
+            </div>
             
             <h2>AUGUSTO RIVERA GARCÉS</h2>
             <p>
@@ -400,6 +535,94 @@
             <p>
                 Estos mitos borraron por completo el aspecto y la visión multidimensional que tiene de trasfondo Popayán, una ciudad de múltiples comunidades, etnias, esto se ve borrado por estos mitos que predominan en el relato contemporáneo al nombrar este lugar, con esto vemos como la obra puede ayudar a desmitificar estos mitos y dar una estética que amplíe el panorama pasando de bidimensional a multidimensional.
             </p>
+            
+            <!-- Primer contrarrelato -->
+            <div class="contrarrelato">
+                <h3>Yajhaira Castillo (2025)</h3>
+                <p>Dueña del restaurante Ricuras del Mar Guapi. Como parte de la comunidad costera, te puedo decir que estamos en una lucha constante por preservar nuestros saberes culinarios ancestrales vinculados a la comida de mar.</p>
+                
+                <div class="contrarrelato-grid">
+                    <img src="fotos/Contrarrelato (4)(1).jpg" alt="Cocina tradicional" class="contrarrelato-img">
+                    <img src="fotos/Contrarrelato (4)(2).jpg" alt="Ingredientes ancestrales" class="contrarrelato-img">
+                    <img src="fotos/Contrarrelato (4)(3).jpg" alt="Platos tradicionales" class="contrarrelato-img">
+                    <img src="fotos/Contrarrelato (4)(4).jpg" alt="Restaurante Ricuras del Mar" class="contrarrelato-img">
+                </div>
+                
+                <div class="contrarrelato-quote">
+                    "Mi nombre es Yajhaira, dueña y cocinera del restaurante 'Ricuras del Mar Guapi', y quiero destacar la importancia de ingredientes como la chillangua hierba sagrada, el achiote y técnicas como el uso del coco, transmitidas por generaciones."
+                </div>
+                
+                <p>No te miento, sí me preocupa la apropiación externa de mis recetas, se llevan los secretos, pero sé que, aunque otros las repliquen, nunca será lo mismo. Nuestra sazón lleva memoria, territorio y, sobre todo, el amor que le ponemos.</p>
+                
+                <p>Dos platos fundamentales en nuestro restaurante, muy solicitados por nuestros clientes, son el biche y el arrechón. Para mí, representan actos de resistencia cultural porque no existen recetas escritas; las hemos aprendido oralmente, de generación en generación.</p>
+                
+                <p>Aunque enfrentamos competencia comercial, nos negamos a alterar nuestros métodos. No bajamos la calidad, incluso ante presiones económicas. Hace un tiempo, otro restaurante intentó hacerse pasar por el mío, decían 'esto es el de Yajaira' cuando no era cierto. Fue difícil, pero reafirmo que, para nosotros, la comida no es solo sustento: es el legado vivo de nuestros ancestros.</p>
+                
+                <p>Al mostrar la cocina como campo de batalla contra plagios, competencia desleal y pérdida identitaria, estas voces desmitifican la gastronomía como mero producto, reivindicandola como práctica política de resistencia.</p>
+            </div>
+            
+            <!-- Segundo contrarrelato -->
+            <div class="contrarrelato">
+                <h3>Karol Ortíz (2025)</h3>
+                <p>Derechos Humanos. CNA. Soy Karol Ortíz, y hago parte del equipo de DD. HH. del CNA mi enfoque va dirigido a la soberanía alimentaria en las comunidades campesinas.</p>
+                
+                <div class="contrarrelato-grid">
+                    <img src="fotos/Contrarrelato (3)(3).jpg" alt="Trabajo comunitario" class="contrarrelato-img">
+                    <img src="fotos/Contrarrelato (3)(1).jpg" alt="Organización social" class="contrarrelato-img">
+                    <img src="fotos/Contrarrelato (3)(2).jpg" alt="Soberanía alimentaria" class="contrarrelato-img">
+                </div>
+                
+                <div class="contrarrelato-quote">
+                    "Recuerdo el día en que comenzamos a organizarnos para luchar por nuestros derechos. Fue un momento clave en nuestra historia, y marcó el comienzo de una larga y difícil lucha."
+                </div>
+                
+                <p>A través de mi experiencia, he aprendido que la resistencia a través de la organización social es un proceso poderoso que nos permite unir fuerzas y potencializar la participación ciudadana. Hemos utilizado diversas herramientas para lograr nuestros objetivos, como la movilización social, la formación académica, la conciencia social y la participación política y ciudadana.</p>
+                
+                <p>También hemos trabajado en la protección y defensa de los derechos humanos, la promoción de la agroecología, la perspectiva de género y la restitución de tierras. Estos aspectos son fundamentales para nuestra lucha, ya que implican la dignidad y la justicia para todas las personas.</p>
+                
+                <p>Mi experiencia me ha enseñado que la resistencia es un proceso complejo y multifacético, pero que trabajando juntos y de manera organizada, podemos lograr cambios significativos y duraderos que beneficien a nuestras comunidades.</p>
+            </div>
+            
+            <!-- Tercer contrarrelato actualizado -->
+            <div class="contrarrelato">
+                <h3>Isabel Avirama (2025)</h3>
+                <p>Colectivo Amapola, Mesa Gráfica del Cauca.</p>
+                
+                <div class="contrarrelato-grid">
+                    <img src="fotos/Contrarrelato (2)(1).jpg" alt="Arte comunitario" class="contrarrelato-img">
+                    <img src="fotos/Contrarrelato (2)(2).jpg" alt="Expresión cultural" class="contrarrelato-img">
+                    <img src="fotos/Contrarrelato (2)(3).jpg" alt="Trabajo colectivo" class="contrarrelato-img">
+                    <img src="fotos/Contrarrelato (2).jpg" alt="Mesa Gráfica" class="contrarrelato-img">
+                </div>
+                
+                <div class="contrarrelato-quote">
+                    "Primero, pienso que el colonialismo no es nuestra identidad, ni debe seguir siendo dominante en nuestra sociedad. Nunca me he sentido identificada con el colonialismo porque soy de un pueblo originario del Valle de Pubenza, un territorio místico y rico en diversidad."
+                </div>
+                
+                <p>No se puede negar que nos esclavizaron y nos maltrataron, quitándonos nuestra identidad y creencias. La colonización estuvo cargada de religión, mientras que nosotros entendíamos la espiritualidad de otra manera, por lo que nos impusieron algo que no era parte de nuestra identidad.</p>
+                
+                <p>No creo que el colonialismo deba seguir siendo representado como una memoria o un "mito", ya que es una imposición de poder, no una historia heroica. Es grave seguir representándolo así porque nos ha robado parte de nuestra identidad y creencias que son difíciles de recuperar.</p>
+                
+                <p>Por ejemplo, en Popayán convive la pirámide del morro de Tulcán con muchísimas iglesias, lo cual me parece ilógico, si bien la arquitectura tiene simbolismos que nos conectan, el colonialismo nos ha quitado esos símbolos místicos que eran nuestros puntos de encuentro y de ritual.</p>
+                
+                <p>Además, el colonialismo ha causado un retroceso en la identidad, espiritualidad y arte de nuestra ciudad. Popayán no apoya el arte como transformador cultural y es difícil encontrar espacios para expresarnos. Las formas de arte popular que representan nuestra identidad han ido desapareciendo porque no son aceptables moralmente. Esto, en lugar de enriquecer nuestra espiritualidad, ha generado una lucha por el reconocimiento y la expresión.</p>
+                
+                <video class="contrarrelato-video" controls>
+                    <source src="fotos/Contrarrelato (2).mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+            </div>
+            
+            <!-- Cuarto contrarrelato (solo video) -->
+            <div class="contrarrelato">
+                <h3>Voces Ancestrales (2025)</h3>
+                <p>Testimonios de resistencia cultural</p>
+                
+                <video class="contrarrelato-video" controls>
+                    <source src="fotos/Contrarrelato (1).mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+            </div>
             
             <img src="fotos/integrantefun.jpg" alt="Equipo de trabajo" class="comic-image">
             
