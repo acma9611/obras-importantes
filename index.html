@@ -11,6 +11,7 @@
             --primary: #FF1F1F;
             --secondary: #3A7BFF;
             --yellow: #FFDE00;
+            --bright-yellow: #FFEE00; /* Amarillo más brillante para el POW */
             --black: #000;
             --white: #FFF;
             --highlight: #FF9E00;
@@ -238,13 +239,17 @@
         
         .comic-effect {
             font-family: 'Bangers', cursive;
-            color: var(--primary);
+            color: var(--bright-yellow); /* Cambiado a amarillo brillante */
             font-size: 2rem;
             transform: rotate(-10deg);
             display: inline-block;
             margin: 0 10px;
-            text-shadow: 2px 2px 0 var(--black);
+            text-shadow: 
+                2px 2px 0 var(--black),
+                4px 4px 0 rgba(0,0,0,0.3); /* Sombra más pronunciada */
             animation: bounce 0.5s infinite alternate;
+            -webkit-text-stroke: 1px var(--black); /* Borde negro para mejor legibilidad */
+            filter: drop-shadow(0 0 2px rgba(255,255,0,0.7)); /* Efecto de brillo */
         }
         
         @keyframes bounce {
@@ -309,8 +314,6 @@
         </div>
     </nav>
     
-    
-    
     <footer>
         <div class="comic-container">
             <p>Proyecto realizado por: <strong>Comunicación Social - Cuarto Semestre</strong></p>
@@ -320,6 +323,9 @@
             <p>Docente: <strong>Andrea Calderón</strong></p>
             <p class="powered-by">¡BANG! ¡POW! ¡ZING! © 2025</p>
         </div>
+    </footer>
+</body>
+</html>
     </footer>
 </body>
 </html>
