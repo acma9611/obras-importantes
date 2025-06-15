@@ -564,6 +564,89 @@
             display: none;
         }
         
+        /* PERSONAJE FLOTANTE CON GLOBO DE DIÁLOGO */
+        .floating-character {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            max-width: 120px;
+            height: auto;
+            transform: rotate(-5deg);
+            transition: transform 0.3s;
+            opacity: 0.9;
+        }
+        
+        .floating-character:hover {
+            transform: rotate(0deg) scale(1.1);
+            opacity: 1;
+        }
+        
+        .character-image {
+            width: 100%;
+            height: auto;
+            border: 3px solid var(--black);
+            box-shadow: 5px 5px 0 var(--black);
+            background-color: var(--white);
+            padding: 5px;
+            animation: float 3s ease-in-out infinite;
+            border-radius: 10px;
+        }
+        
+        .speech-bubble-character {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 3px solid var(--black);
+            border-radius: 20px;
+            padding: 15px;
+            margin-bottom: 15px;
+            max-width: 200px;
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+            font-family: 'Bangers', cursive;
+            font-size: 0.9rem;
+            color: var(--black);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1001;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        
+        .speech-bubble-character:after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -10px;
+            border-width: 12px;
+            border-style: solid;
+            border-color: rgba(255, 255, 255, 0.95) transparent transparent transparent;
+        }
+        
+        .floating-character:hover .speech-bubble-character {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-10px);
+        }
+        
+        .talk-animation {
+            animation: talk 0.5s infinite alternate;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes talk {
+            from { transform: scaleY(1); }
+            to { transform: scaleY(0.95); }
+        }
+        
         @media (max-width: 768px) {
             .comic-container {
                 padding: 10px;
@@ -623,6 +706,17 @@
             #music-label {
                 font-size: 0.8rem;
             }
+            
+            .floating-character {
+                max-width: 80px;
+                bottom: 10px;
+                left: 10px;
+            }
+            
+            .speech-bubble-character {
+                max-width: 150px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -630,6 +724,14 @@
     <div class="comic-bubble bubble1"></div>
     <div class="comic-bubble bubble2"></div>
     <div class="comic-bubble bubble3"></div>
+    
+    <!-- Personaje flotante con globo de diálogo -->
+    <div class="floating-character">
+        <div class="speech-bubble-character">
+            ¡Conoce la verdadera historia detrás de la fundación de Popayán!
+        </div>
+        <img src="fotos/dibujofundacion.png" alt="Personaje histórico" class="character-image talk-animation">
+    </div>
     
     <!-- Reproductor de música estilo cómic -->
     <div id="music-player">
@@ -786,21 +888,17 @@
         const bgMusic = document.getElementById('bg-music');
         const musicToggle = document.getElementById('music-toggle');
         const musicLabel = document.getElementById('music-label');
-        
-        // Intentar reproducir automáticamente al cargar la página
+
         document.addEventListener('DOMContentLoaded', function() {
-            // Intentar reproducir automáticamente (puede ser bloqueado por el navegador)
             const playPromise = bgMusic.play();
             
             if (playPromise !== undefined) {
                 playPromise.catch(error => {
-                    // La reproducción automática falló, mostrar instrucción
                     musicLabel.textContent = "Click para reproducir";
                 });
             }
         });
         
-        // Control para pausar/reanudar
         musicToggle.addEventListener('click', function() {
             if (bgMusic.paused) {
                 bgMusic.play();
@@ -813,7 +911,6 @@
             }
         });
         
-        // Cambiar el icono cuando la música termina (aunque está en bucle)
         bgMusic.addEventListener('ended', function() {
             musicToggle.textContent = "🔇";
             musicLabel.textContent = "";
