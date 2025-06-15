@@ -15,6 +15,7 @@
             --black: #000;
             --white: #FFF;
             --highlight: #FF9E00;
+            --cat-color: #FF6B6B;
         }
         
         body {
@@ -194,12 +195,7 @@
             padding: 30px;
             margin: 40px 0;
             text-align: center;
-            animation: rotateInfo 15s linear infinite;
-        }
-        
-        @keyframes rotateInfo {
-            0% { transform: rotate(0); }
-            100% { transform: rotate(360deg); }
+            /* Se eliminó la rotación como solicitado */
         }
         
         .project-info h2 {
@@ -360,13 +356,14 @@
             transform: translateX(-50%) translateY(-10px);
         }
         
-        /* ANIMACIÓN DE GATO CORRIENDO */
-        .running-cat {
+        /* ANIMACIÓN DE GATO CÓMIC CORRIENDO */
+        .comic-cat {
             position: fixed;
-            width: 80px;
-            height: 60px;
+            width: 100px;
+            height: 80px;
             z-index: 999;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><path d="M10,30 Q30,10 50,30 T90,30" stroke="black" stroke-width="2" fill="none"/><circle cx="15" cy="10" r="5" fill="%23FF6B6B"/><circle cx="25" cy="10" r="5" fill="%23FF6B6B"/><path d="M5,25 Q15,15 25,25 T45,25" stroke="%23FF6B6B" stroke-width="3" fill="none"/><path d="M55,25 Q65,15 75,25 T95,25" stroke="%23FF6B6B" stroke-width="3" fill="none"/><path d="M30,40 Q40,50 50,40 T70,40" stroke="%23FF6B6B" stroke-width="4" fill="none"/><path d="M75,35 Q85,25 95,35" stroke="%23FF6B6B" stroke-width="3" fill="none"/></svg>');
+            pointer-events: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80"><g><path d="M20,40 Q40,20 60,40 Q80,60 60,80 Q40,60 20,80 Q0,60 20,40" fill="%23FF6B6B" stroke="black" stroke-width="2"/><circle cx="25" cy="30" r="5" fill="white"/><circle cx="35" cy="30" r="5" fill="white"/><circle cx="25" cy="30" r="2" fill="black"/><circle cx="35" cy="30" r="2" fill="black"/><path d="M45,40 Q55,45 50,50" stroke="black" stroke-width="2" fill="none"/><ellipse cx="30" cy="50" rx="4" ry="2" fill="black"/><path d="M10,60 Q15,65 20,60" stroke="black" stroke-width="2" fill="none"/><path d="M40,60 Q45,65 50,60" stroke="black" stroke-width="2" fill="none"/><path d="M70,60 Q75,65 80,60" stroke="black" stroke-width="2" fill="none"/><path d="M80,40 Q85,45 90,40" stroke="black" stroke-width="2" fill="none"/></g></svg>');
             background-size: contain;
             background-repeat: no-repeat;
             animation: runAround 15s linear infinite;
@@ -376,39 +373,33 @@
             0% {
                 top: 0;
                 left: 0;
-                transform: rotate(0deg);
+                transform: rotate(0deg) scaleX(1);
             }
             25% {
                 top: 0;
-                left: calc(100% - 80px);
-                transform: rotate(0deg);
+                left: calc(100% - 100px);
+                transform: rotate(0deg) scaleX(1);
             }
             26% {
-                transform: rotate(90deg);
+                transform: rotate(0deg) scaleX(-1);
             }
             50% {
-                top: calc(100% - 60px);
-                left: calc(100% - 80px);
-                transform: rotate(90deg);
+                top: calc(100% - 80px);
+                left: calc(100% - 100px);
+                transform: rotate(0deg) scaleX(-1);
             }
             51% {
-                transform: rotate(180deg);
+                transform: rotate(0deg) scaleX(1);
             }
             75% {
-                top: calc(100% - 60px);
+                top: calc(100% - 80px);
                 left: 0;
-                transform: rotate(180deg);
-            }
-            76% {
-                transform: rotate(270deg);
-            }
-            99% {
-                top: 0;
-                left: 0;
-                transform: rotate(270deg);
+                transform: rotate(0deg) scaleX(1);
             }
             100% {
-                transform: rotate(360deg);
+                top: 0;
+                left: 0;
+                transform: rotate(0deg) scaleX(1);
             }
         }
         
@@ -421,6 +412,7 @@
             background-size: contain;
             opacity: 0;
             animation: pawPrint 2s forwards;
+            z-index: 998;
         }
         
         @keyframes pawPrint {
@@ -436,6 +428,28 @@
                 opacity: 0;
                 transform: scale(0.3);
             }
+        }
+        
+        /* GLOBO DE TEXTO PARA EL GATO */
+        .cat-bubble {
+            position: fixed;
+            background-color: white;
+            border: 3px solid black;
+            border-radius: 15px;
+            padding: 10px;
+            font-family: 'Comic Neue', cursive;
+            font-size: 0.9rem;
+            z-index: 1001;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .cat-bubble:after {
+            content: '';
+            position: absolute;
+            border-width: 10px;
+            border-style: solid;
         }
         
         @media (max-width: 768px) {
@@ -471,16 +485,16 @@
                 font-size: 0.85rem;
             }
             
-            .running-cat {
-                width: 60px;
-                height: 45px;
+            .comic-cat {
+                width: 70px;
+                height: 56px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Gato corriendo alrededor -->
-    <div class="running-cat"></div>
+    <!-- Gato cómic corriendo alrededor -->
+    <div class="comic-cat"></div>
     
     <!-- Personaje flotante con globo de diálogo -->
     <div class="floating-character">
@@ -554,7 +568,7 @@
         }
         
         // Crear patitas cada cierto tiempo
-        setInterval(createPawPrint, 500);
+        setInterval(createPawPrint, 800);
         
         // Efecto de movimiento al desplazar
         window.addEventListener('scroll', () => {
@@ -564,6 +578,48 @@
                 panel.style.transform = `rotate(${-0.5 + (scrollPosition * 0.005)}deg)`;
             });
         });
+        
+        // Globo de texto para el gato
+        const catMessages = [
+            "¡Miau! Arte es genial",
+            "¡Soy el guardián de las obras!",
+            "Explora las obras conmigo",
+            "¡Arte y gatos son lo mejor!",
+            "¿Viste mi obra favorita?"
+        ];
+        
+        function showCatBubble() {
+            const cat = document.querySelector('.comic-cat');
+            const bubble = document.createElement('div');
+            bubble.className = 'cat-bubble';
+            
+            // Mensaje aleatorio
+            const randomMsg = catMessages[Math.floor(Math.random() * catMessages.length)];
+            bubble.textContent = randomMsg;
+            
+            // Posicionar cerca del gato
+            const catRect = cat.getBoundingClientRect();
+            bubble.style.top = `${catRect.top - 50}px`;
+            bubble.style.left = `${catRect.left + 30}px`;
+            
+            // Triángulo del globo
+            bubble.style.setProperty('--bubble-color', 'white');
+            bubble.innerHTML += `<style>.cat-bubble:after { border-color: white transparent transparent transparent; }</style>`;
+            
+            document.body.appendChild(bubble);
+            bubble.style.opacity = "1";
+            
+            // Desaparecer después de un tiempo
+            setTimeout(() => {
+                bubble.style.opacity = "0";
+                setTimeout(() => {
+                    bubble.remove();
+                }, 300);
+            }, 3000);
+        }
+        
+        // Mostrar globo cada 8 segundos
+        setInterval(showCatBubble, 8000);
     </script>
 </body>
 </html>
