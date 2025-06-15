@@ -11,7 +11,7 @@
             --primary: #FF1F1F;
             --secondary: #3A7BFF;
             --yellow: #FFDE00;
-            --bright-yellow: #FFEE00; /* Amarillo más brillante para el POW */
+            --bright-yellow: #FFEE00;
             --black: #000;
             --white: #FFF;
             --highlight: #FF9E00;
@@ -28,6 +28,8 @@
             background-size: 20px 20px;
             background-position: 0 0, 10px 10px;
             line-height: 1.6;
+            position: relative; /* Necesario para el posicionamiento de la imagen flotante */
+            min-height: 100vh; /* Para asegurar que el pie de página esté abajo */
         }
         
         .comic-container {
@@ -222,6 +224,8 @@
             padding: 40px 20px;
             text-align: center;
             border-top: 6px solid var(--primary);
+            position: relative;
+            z-index: 5; /* Asegura que el footer esté sobre la imagen flotante */
         }
         
         footer p {
@@ -239,22 +243,51 @@
         
         .comic-effect {
             font-family: 'Bangers', cursive;
-            color: var(--bright-yellow); /* Cambiado a amarillo brillante */
+            color: var(--bright-yellow);
             font-size: 2rem;
             transform: rotate(-10deg);
             display: inline-block;
             margin: 0 10px;
             text-shadow: 
                 2px 2px 0 var(--black),
-                4px 4px 0 rgba(0,0,0,0.3); /* Sombra más pronunciada */
+                4px 4px 0 rgba(0,0,0,0.3);
             animation: bounce 0.5s infinite alternate;
-            -webkit-text-stroke: 1px var(--black); /* Borde negro para mejor legibilidad */
-            filter: drop-shadow(0 0 2px rgba(255,255,0,0.7)); /* Efecto de brillo */
+            -webkit-text-stroke: 1px var(--black);
+            filter: drop-shadow(0 0 2px rgba(255,255,0,0.7));
         }
         
         @keyframes bounce {
             from { transform: rotate(-10deg) translateY(0); }
             to { transform: rotate(-10deg) translateY(-5px); }
+        }
+        
+        /* IMAGEN FLOTANTE */
+        .floating-image {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000; /* Para que esté por encima de todo */
+            max-width: 120px; /* Tamaño ajustable */
+            height: auto;
+            border: 3px solid var(--black);
+            box-shadow: 5px 5px 0 var(--black);
+            background-color: var(--white);
+            padding: 5px;
+            animation: float 3s ease-in-out infinite;
+            transform: rotate(-5deg);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .floating-image:hover {
+            transform: rotate(0deg) scale(1.1);
+            box-shadow: 8px 8px 0 var(--black);
+            animation: none;
+        }
+        
+        @keyframes float {
+            0% { transform: rotate(-5deg) translateY(0); }
+            50% { transform: rotate(-5deg) translateY(-10px); }
+            100% { transform: rotate(-5deg) translateY(0); }
         }
         
         @media (max-width: 768px) {
@@ -278,10 +311,20 @@
                 padding: 20px;
                 margin: 20px 0;
             }
+            
+            /* Ajuste para móviles de la imagen flotante */
+            .floating-image {
+                max-width: 80px;
+                bottom: 10px;
+                left: 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Imagen flotante agregada aquí -->
+    <img src="fotos/dibujoprincipal.png" alt="Personaje cómico" class="floating-image">
+    
     <div class="comic-container">
         <div class="comic-panel">
             <header>
@@ -323,9 +366,6 @@
             <p>Docente: <strong>Andrea Calderón</strong></p>
             <p class="powered-by">¡BANG! ¡POW! ¡ZING! © 2025</p>
         </div>
-    </footer>
-</body>
-</html>
     </footer>
 </body>
 </html>
