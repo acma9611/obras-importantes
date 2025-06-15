@@ -28,8 +28,8 @@
             background-size: 20px 20px;
             background-position: 0 0, 10px 10px;
             line-height: 1.6;
-            position: relative; /* Necesario para el posicionamiento de la imagen flotante */
-            min-height: 100vh; /* Para asegurar que el pie de página esté abajo */
+            position: relative;
+            min-height: 100vh;
         }
         
         .comic-container {
@@ -225,7 +225,7 @@
             text-align: center;
             border-top: 6px solid var(--primary);
             position: relative;
-            z-index: 5; /* Asegura que el footer esté sobre la imagen flotante */
+            z-index: 5;
         }
         
         footer p {
@@ -261,33 +261,84 @@
             to { transform: rotate(-10deg) translateY(-5px); }
         }
         
-        /* IMAGEN FLOTANTE */
-        .floating-image {
+        /* IMAGEN FLOTANTE CON GLOBO DE DIÁLOGO */
+        .floating-character {
             position: fixed;
             bottom: 20px;
             left: 20px;
-            z-index: 1000; /* Para que esté por encima de todo */
-            max-width: 120px; /* Tamaño ajustable */
+            z-index: 1000;
+            max-width: 120px;
+            height: auto;
+            transform: rotate(-5deg);
+            transition: transform 0.3s;
+            opacity: 0.9; /* Transparencia */
+        }
+        
+        .floating-character:hover {
+            transform: rotate(0deg) scale(1.1);
+            opacity: 1;
+        }
+        
+        .character-image {
+            width: 100%;
             height: auto;
             border: 3px solid var(--black);
             box-shadow: 5px 5px 0 var(--black);
             background-color: var(--white);
             padding: 5px;
             animation: float 3s ease-in-out infinite;
-            transform: rotate(-5deg);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .floating-image:hover {
-            transform: rotate(0deg) scale(1.1);
-            box-shadow: 8px 8px 0 var(--black);
-            animation: none;
         }
         
         @keyframes float {
-            0% { transform: rotate(-5deg) translateY(0); }
-            50% { transform: rotate(-5deg) translateY(-10px); }
-            100% { transform: rotate(-5deg) translateY(0); }
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        
+        .speech-bubble-character {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.95); /* Fondo semi-transparente */
+            border: 3px solid var(--black);
+            border-radius: 20px;
+            padding: 15px;
+            margin-bottom: 15px;
+            max-width: 200px;
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+            font-family: 'Comic Neue', cursive;
+            font-size: 0.9rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+        
+        .speech-bubble-character:after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -10px;
+            border-width: 12px;
+            border-style: solid;
+            border-color: rgba(255, 255, 255, 0.95) transparent transparent transparent;
+        }
+        
+        .floating-character:hover .speech-bubble-character {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-10px);
+        }
+        
+        .talk-animation {
+            animation: talk 0.5s infinite alternate;
+        }
+        
+        @keyframes talk {
+            from { transform: scaleY(1); }
+            to { transform: scaleY(0.95); }
         }
         
         @media (max-width: 768px) {
@@ -312,18 +363,27 @@
                 margin: 20px 0;
             }
             
-            /* Ajuste para móviles de la imagen flotante */
-            .floating-image {
+            .floating-character {
                 max-width: 80px;
                 bottom: 10px;
                 left: 10px;
+            }
+            
+            .speech-bubble-character {
+                max-width: 150px;
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Imagen flotante agregada aquí -->
-    <img src="fotos/dibujoprincipal.png" alt="Personaje cómico" class="floating-image">
+    <!-- Personaje flotante con globo de diálogo -->
+    <div class="floating-character">
+        <div class="speech-bubble-character">
+            ¡Hola! Explora las increíbles obras de arte de nuestra facultad. ¡Te sorprenderás!
+        </div>
+        <img src="fotos/dibujoprincipal.png" alt="Personaje cómico" class="character-image talk-animation">
+    </div>
     
     <div class="comic-container">
         <div class="comic-panel">
@@ -367,5 +427,7 @@
             <p class="powered-by">¡BANG! ¡POW! ¡ZING! © 2025</p>
         </div>
     </footer>
+</body>
+</html>
 </body>
 </html>
